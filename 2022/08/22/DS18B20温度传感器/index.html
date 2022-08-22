@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="John Doe">
+
+
+
+
+
+<title>Hexo</title>
+
+
+
+    <link rel="icon" href="/bh.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+	
+<script>
+!
+function() {
+	function n(n, e, t) {
+		return n.getAttribute(e) || t
+	}
+	function e(n) {
+    	return document.getElementsByTagName(n)
+ 	}
+	function t() {
+		var t = e("script"),
+    	o = t.length,
+    	i = t[o - 1];
+    	return {
+      		l: o,
+      		z: n(i, "zIndex", -1),   //置于主页面背后
+      		o: n(i, "opacity", .5),   //线条透明度
+      		c: n(i, "color", "0,0,0"),  //线条颜色
+      		n: n(i, "count", 100)   //线条数量
+   		}
+ 	}
+	function o() {
+    	a = m.width = window.innerWidth ||
+document.documentElement.clientWidth || document.body.clientWidth,
+    	c = m.height = window.innerHeight ||
+document.documentElement.clientHeight || document.body.clientHeight
+ 	}
+	
+	function i() {
+    	r.clearRect(0, 0, a, c);
+    	var n, e, t, o, m, l;
+    	s.forEach(function(i, x) {
+      		for (i.x += i.xa, i.y += i.ya, i.xa *= i.x > a || i.x < 0 ? -1 :
+1, i.ya *= i.y > c || i.y < 0 ? -1 : 1, r.fillRect(i.x - .5, i.y - .5, 1,
+1), e = x + 1; e < u.length; e++) n = u[e],
+      		null !== n.x && null !== n.y && (o = i.x - n.x, m = i.y - n.y, l
+= o * o + m * m, l < n.max && (n === y && l >= n.max / 2 && (i.x -= .03 * o,
+i.y -= .03 * m), t = (n.max - l) / n.max, r.beginPath(), r.lineWidth = t /
+2, r.strokeStyle = "rgba(" + d.c + "," + (t + .2) + ")", r.moveTo(i.x, i.y),
+r.lineTo(n.x, n.y), r.stroke()))
+   		}),
+    	x(i)
+ 	}
+	var a, c, u, m = document.createElement("canvas"),
+  	d = t(),
+  	l = "c_n" + d.l,
+  	r = m.getContext("2d"),
+  	x = window.requestAnimationFrame || window.webkitRequestAnimationFrame
+|| window.mozRequestAnimationFrame || window.oRequestAnimationFrame ||
+window.msRequestAnimationFrame ||
+  	function(n) {
+    	window.setTimeout(n, 1e3 / 45)
+ 	},
+  	w = Math.random,
+  	y = {
+    	x: null,
+    	y: null,
+    	max: 2e4
+ 	};
+	m.id = l,
+  	m.style.cssText = "position:fixed;top:0;left:0;z-index:" + d.z +
+";opacity:" + d.o,
+  	e("body")[0].appendChild(m),
+  	o(),
+  	window.onresize = o,
+  	window.onmousemove = function(n) {
+    	n = n || window.event,
+    	y.x = n.clientX,
+    	y.y = n.clientY
+ 	},
+	window.onmouseout = function() {
+    	y.x = null,
+    	y.y = null
+ 	};
+  	for (var s = [], f = 0; d.n > f; f++) {
+    	var h = w() * a,
+    	g = w() * c,
+    	v = 2 * w() - 1,
+    	p = 2 * w() - 1;
+    	s.push({
+      		x: h,
+      		y: g,
+      		xa: v,
+      		ya: p,
+      		max: 6e3
+   		})
+ 	}
+  	u = s.concat([y]),
+  	setTimeout(function() {
+    	i()
+ 	},
+  	100)
+}();
+</script>
+	<!--雪花效果 -->
+<script src="https://cdn.jsdelivr.net/gh/TRHX/CDN-for-itrhx.com@3.0.6/js/snow3.js"></script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Lizard&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Lizard&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title"></h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">John Doe</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">August 22, 2022&nbsp;&nbsp;16:35:31</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="DS18B20温度传感器"><a href="#DS18B20温度传感器" class="headerlink" title="DS18B20温度传感器"></a>DS18B20温度传感器</h1><h3 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h3><blockquote>
+<p>性能特征</p>
+</blockquote>
+<ul>
+<li>单总线–双向通信–提高了抗干扰性能</li>
+<li>温度测量范围–&gt;-55~+125度，精度+-0.5度</li>
+<li>一根数据线上可挂载多个DS18B20 –并联最多8个</li>
+<li>工作电压3.0~5.5V</li>
+<li>数据串行发送</li>
+</ul>
+<blockquote>
+<p>引脚功能</p>
+</blockquote>
+<p><img src="C:/Users/%E8%B4%BE%E5%A4%A9%E8%88%AA/AppData/Roaming/Typora/typora-user-images/image-20220822131411955.png" alt="image-20220822131411955"></p>
+<blockquote>
+<p> 通信方式：</p>
+<p>6种信号类型		（所有数据都是低位在前）</p>
+</blockquote>
+<ul>
+<li><p>复位脉冲</p>
+</li>
+<li><p>应答脉冲   —&gt;DS18B20自己产生</p>
+</li>
+<li><p>写0</p>
+</li>
+<li><p>写1</p>
+</li>
+<li><p>读0</p>
+</li>
+<li><p>读1</p>
+</li>
+</ul>
+<h3 id="stm32单片机设置"><a href="#stm32单片机设置" class="headerlink" title="stm32单片机设置"></a>stm32单片机设置</h3><blockquote>
+<p>stm32单片机控制引脚的	<code>输入``输出</code>方式		CRL(引脚的0-7脚)CRH(引脚的8-15脚)</p>
+</blockquote>
+<p><code>PG11</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//IO方向设置</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> DS18B20_IO_IN()  &#123;GPIOG-&gt;CRH&amp;=0XFFFF0FFF;GPIOG-&gt;CRH|=8&lt;&lt;12;&#125;</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> DS18B20_IO_OUT() &#123;GPIOG-&gt;CRH&amp;=0XFFFF0FFF;GPIOG-&gt;CRH|=3&lt;&lt;12;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>PA0</code>		PA0设置成<strong>模拟输入模式</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//IO方向设置</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> DS18B20_IO_IN()  &#123;GPIOA-&gt;CRL&amp;=0XFFFFFFF0;GPIOA-&gt;CRL|=8&lt;&lt;0;&#125;</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> DS18B20_IO_OUT() &#123;GPIOA-&gt;CRL&amp;=0XFFFFFFF0;GPIOA-&gt;CRL|=3&lt;&lt;0;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>IO口操作</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//IO操作函数											   </span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span>	DS18B20_DQ_OUT PAout(0) <span class="comment">//数据端口	PA0 </span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span>	DS18B20_DQ_IN  PAin(0)  <span class="comment">//数据端口	PA0 </span></span></span><br></pre></td></tr></table></figure>
+
+<h3 id="复位函数"><a href="#复位函数" class="headerlink" title="复位函数"></a>复位函数</h3><blockquote>
+<p>单总线上的所有通信都是以初始化序列开始。主机输出低电平，保持低电平时间至少480us，产生复位脉冲。接着主机释放总线，4.7K的上拉电阻将单总线拉高，延时15<del>60 us，并进入接收模式(Rx)。接着DS18B20拉低总线60</del>240 us，以产生低电平应答脉冲。</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//复位DS18B20</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">DS18B20_Rst</span><span class="params">(<span class="type">void</span>)</span>	   </span><br><span class="line">&#123;                 </span><br><span class="line">	DS18B20_IO_OUT(); 	<span class="comment">//设置引脚为输出</span></span><br><span class="line">    DS18B20_DQ_OUT=<span class="number">0</span>; 	<span class="comment">//拉低DQ</span></span><br><span class="line">    Delay_us(<span class="number">750</span>);    	<span class="comment">//拉低750us</span></span><br><span class="line">    DS18B20_DQ_OUT=<span class="number">1</span>; 	<span class="comment">//DQ=1 </span></span><br><span class="line">	Delay_us(<span class="number">15</span>);     	<span class="comment">//15US</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>此时单片机进入接收模式，等待应答信号</li>
+</ul>
+<h3 id="应答信号"><a href="#应答信号" class="headerlink" title="应答信号"></a>应答信号</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//等待DS18B20的回应</span></span><br><span class="line"><span class="comment">//返回1:未检测到DS18B20的存在</span></span><br><span class="line"><span class="comment">//返回0:存在</span></span><br><span class="line">u8 <span class="title function_">DS18B20_Check</span><span class="params">(<span class="type">void</span>)</span> 	   </span><br><span class="line">&#123;   </span><br><span class="line">	u8 retry=<span class="number">0</span>;</span><br><span class="line">	DS18B20_IO_IN();	<span class="comment">//设置引脚为输入</span></span><br><span class="line">    <span class="keyword">while</span> (DS18B20_DQ_IN&amp;&amp;retry&lt;<span class="number">200</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		retry++;</span><br><span class="line">		Delay_us(<span class="number">1</span>);</span><br><span class="line">	&#125;;	 </span><br><span class="line">	<span class="keyword">if</span>(retry&gt;=<span class="number">200</span>)<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">else</span> retry=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (!DS18B20_DQ_IN&amp;&amp;retry&lt;<span class="number">240</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		retry++;</span><br><span class="line">		Delay_us(<span class="number">1</span>);</span><br><span class="line">	&#125;;</span><br><span class="line">	<span class="keyword">if</span>(retry&gt;=<span class="number">240</span>)<span class="keyword">return</span> <span class="number">1</span>;	    </span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="写时序"><a href="#写时序" class="headerlink" title="写时序"></a>写时序</h3><blockquote>
+<p>写时序包括<code>写0</code>时序和<code>写1</code>时序。所有写时序至少需要60us,且在2次独立的写时序之间至少需要1us的恢复时间，两种写时序均起始于主机拉低总线。<br>写1时序:主机输出<code>低电平</code>，延时<code>2us</code>，然后<code>释放总线</code>，延时<code>60us</code>。<br>写0时序:主机输出<code>低电平</code>，延时<code>60us</code>，然后<code>释放总线</code>，延时<code>2us</code>。</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//写一个字节到DS18B20</span></span><br><span class="line"><span class="comment">//dat：要写入的字节</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">DS18B20_Write_Byte</span><span class="params">(u8 dat)</span>     </span><br><span class="line"> &#123;             </span><br><span class="line">    u8 j;</span><br><span class="line">    u8 testb;</span><br><span class="line">	DS18B20_IO_OUT();	<span class="comment">//设置引脚为输出</span></span><br><span class="line">    <span class="keyword">for</span> (j=<span class="number">1</span>;j&lt;=<span class="number">8</span>;j++) </span><br><span class="line">	&#123;</span><br><span class="line">        testb=dat&amp;<span class="number">0x01</span>;	<span class="comment">//取出写入数据的最低位</span></span><br><span class="line">        dat=dat&gt;&gt;<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (testb) 		<span class="comment">//判断写1还是0</span></span><br><span class="line">        &#123;</span><br><span class="line">            DS18B20_DQ_OUT=<span class="number">0</span>;	<span class="comment">// Write 1</span></span><br><span class="line">            Delay_us(<span class="number">2</span>);                            </span><br><span class="line">            DS18B20_DQ_OUT=<span class="number">1</span>;</span><br><span class="line">            Delay_us(<span class="number">60</span>);             </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">        &#123;</span><br><span class="line">            DS18B20_DQ_OUT=<span class="number">0</span>;	<span class="comment">// Write 0</span></span><br><span class="line">            Delay_us(<span class="number">60</span>);             </span><br><span class="line">            DS18B20_DQ_OUT=<span class="number">1</span>;</span><br><span class="line">            Delay_us(<span class="number">2</span>);                          </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="读时序"><a href="#读时序" class="headerlink" title="读时序"></a>读时序</h3><blockquote>
+<p>单总线器件仅在主机发出读时序时，才向主机传输数据，所以，在主机发出读数据命令后，必须马上产生读时序，以便从机能够传输数据。<br>所有读时序至少需要60us,且在2次 独立的读时序之间至少需要1us的恢复时间。每个读时序都由主机发起，至少拉低总线1us。主机在读时序期间必须释放总线，并且在时序起始，后的15us之内采样总线状态。<br>典型的读时序过程为:主机输出<code>低电平</code>延时<code>2us</code>，然后主机转入<code>输入模式</code>延时<code>12us</code>，然后读取单总线当前的电平，然后延时<code>50us</code>。</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//从DS18B20读取一个位</span></span><br><span class="line"><span class="comment">//返回值：1/0</span></span><br><span class="line">u8 <span class="title function_">DS18B20_Read_Bit</span><span class="params">(<span class="type">void</span>)</span> 	 </span><br><span class="line">&#123;</span><br><span class="line">    u8 data;</span><br><span class="line">	DS18B20_IO_OUT();	<span class="comment">//设置引脚为输出</span></span><br><span class="line">    DS18B20_DQ_OUT=<span class="number">0</span>; </span><br><span class="line">	Delay_us(<span class="number">2</span>);</span><br><span class="line">    DS18B20_DQ_OUT=<span class="number">1</span>; </span><br><span class="line">	DS18B20_IO_IN();	<span class="comment">//设置引脚为输入</span></span><br><span class="line">	Delay_us(<span class="number">12</span>);</span><br><span class="line">	<span class="keyword">if</span>(DS18B20_DQ_IN)data=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span> data=<span class="number">0</span>;	 </span><br><span class="line">    Delay_us(<span class="number">50</span>);           </span><br><span class="line">    <span class="keyword">return</span> data;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//从DS18B20读取一个字节</span></span><br><span class="line"><span class="comment">//返回值：读到的数据</span></span><br><span class="line">u8 <span class="title function_">DS18B20_Read_Byte</span><span class="params">(<span class="type">void</span>)</span>     </span><br><span class="line">&#123;        </span><br><span class="line">    u8 i,j,dat;</span><br><span class="line">    dat=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (i=<span class="number">1</span>;i&lt;=<span class="number">8</span>;i++) </span><br><span class="line">	&#123;</span><br><span class="line">        j=DS18B20_Read_Bit();</span><br><span class="line">        dat=(j&lt;&lt;<span class="number">7</span>)|(dat&gt;&gt;<span class="number">1</span>);</span><br><span class="line">    &#125;						    </span><br><span class="line">    <span class="keyword">return</span> dat;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="读取温度"><a href="#读取温度" class="headerlink" title="读取温度"></a>读取温度</h3><blockquote>
+<p>DS18B20的典型温度读取过程为:复位→发SKIP ROM命令(0XCC)→发开始转换命令(0X44)→延时→复位→发送SKIPROM命令(0XCC)→发读存储器命令 (0XBE)→连续读出两个字节数据(即温度)→结束。</p>
+</blockquote>
+<p><code>前四条命令</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//开始温度转换</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">DS18B20_Start</span><span class="params">(<span class="type">void</span>)</span> </span><br><span class="line">&#123;   						               </span><br><span class="line">    DS18B20_Rst();	   </span><br><span class="line">	DS18B20_Check();	 </span><br><span class="line">    DS18B20_Write_Byte(<span class="number">0xcc</span>);	<span class="comment">// skip rom</span></span><br><span class="line">    DS18B20_Write_Byte(<span class="number">0x44</span>);	<span class="comment">// convert</span></span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<p><code>整体读取温度命令</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//从ds18b20得到温度值</span></span><br><span class="line"><span class="comment">//精度：0.1C</span></span><br><span class="line"><span class="comment">//返回值：温度值 （-550~1250） </span></span><br><span class="line"><span class="type">short</span> <span class="title function_">DS18B20_Get_Temp</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    u8 temp;</span><br><span class="line">    u8 TL,TH;</span><br><span class="line">	<span class="type">short</span> tem;</span><br><span class="line">    DS18B20_Start ();  			<span class="comment">// 开始温度转换</span></span><br><span class="line">    DS18B20_Rst();</span><br><span class="line">    DS18B20_Check();	 </span><br><span class="line">    DS18B20_Write_Byte(<span class="number">0xcc</span>);	<span class="comment">// skip rom</span></span><br><span class="line">    DS18B20_Write_Byte(<span class="number">0xbe</span>);	<span class="comment">// convert	    </span></span><br><span class="line">    TL=DS18B20_Read_Byte(); 	<span class="comment">// LSB   	8位</span></span><br><span class="line">    TH=DS18B20_Read_Byte(); 	<span class="comment">// MSB  	8位</span></span><br><span class="line">	    	  </span><br><span class="line">    <span class="keyword">if</span>(TH&gt;<span class="number">7</span>)<span class="comment">//判断温度为+还是-</span></span><br><span class="line">    &#123;</span><br><span class="line">        TH=~TH;</span><br><span class="line">        TL=~TL; </span><br><span class="line">        temp=<span class="number">0</span>;					<span class="comment">//温度为负  </span></span><br><span class="line">    &#125;<span class="keyword">else</span> temp=<span class="number">1</span>;				<span class="comment">//温度为正	  	  </span></span><br><span class="line">    tem=TH; 					<span class="comment">//获得高八位</span></span><br><span class="line">    tem&lt;&lt;=<span class="number">8</span>;    </span><br><span class="line">    tem+=TL;					<span class="comment">//获得底八位</span></span><br><span class="line">    tem=(<span class="type">float</span>)tem*<span class="number">0.625</span>;		<span class="comment">//转换     </span></span><br><span class="line">	<span class="keyword">if</span>(temp)<span class="keyword">return</span> tem; 		<span class="comment">//返回温度值</span></span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> -tem;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>转化后得到的12位数据，存储在18B20的两个8比特的RAM中，二进制中的前面5位是符号位，如果测得的温度大于0，这5位为0，只要将测到的数值乘于0.0625即可得到实际温度:如果温度<br>小于0，这5位为测到的数值需要取反加1再乘于0.0625即可得到实际温度。例如+ 125°C的数字输出为07D0H， -25.0625C的数字输出为FE6FH。 </p>
+</blockquote>
+<p><img src="D:/markdown/%E6%96%87%E4%BB%B6/image-20220822144528390.png" alt="image-20220822144528390"></p>
+<h3 id="成功"><a href="#成功" class="headerlink" title="成功"></a>成功</h3><blockquote>
+<p>实验现象</p>
+</blockquote>
+<p><img src="D:/markdown/%E6%96%87%E4%BB%B6/image-20220822150923187.png" alt="image-20220822150923187"></p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>John Doe</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://example.com/2022/08/22/DS18B20%E6%B8%A9%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8/">http://example.com/2022/08/22/DS18B20%E6%B8%A9%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY</strong>?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2022/08/20/ceshi/"></a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© John Doe | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
